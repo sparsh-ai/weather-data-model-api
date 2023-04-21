@@ -2,28 +2,24 @@ openapi: 3.0.0
 
 info:
   title: Weather data analysis API
-  author: Data Engineering Candidate
   version: 1.0.0
   description: This API provides access to weather data for a given date or station ID. It Also provides statistical data of weather for given statio ID
 
 servers:
-  - url: http://127.0.0.1:5000/
+  - url: http://127.0.0.1:5000
 
 paths:
-  
-  api:
+  /api:
     get:
       summary: Server Port check
-      descreption: Returns "API for weather data" as text 
+      description: Returns "API for weather data" as text 
       responses:
         '200':
-          descreption: Successful operation
-          content: "API for weather data"
+          description: Successful operation
         '400':
           description: Invalid request
 
-
-  api/weather:
+  /api/weather:
     get:
       summary: Retrieve weather data
       description: Returns weather data filtered by date and station ID
@@ -46,9 +42,9 @@ paths:
             default: 1
           description: Page number for pagination
         - in: query
-          name: 
+          name: allresult
           schema:
-            type: 
+            type: integer
             default: 
           description: Returns all results with default pagenumber applicable
       responses:
@@ -83,7 +79,7 @@ paths:
           description: Invalid request
   
   
-  api/weather/stats:
+  /api/weather/stats:
     get:
       summary: Retrieve weather statistics
       description: Returns weather statistics filtered by date and station ID
@@ -100,9 +96,9 @@ paths:
             default: 1
           description: Page number for pagination  
         - in: query
-          name: 
+          name:  allresult
           schema:
-            type: 
+            type: integer
             default: 
           description: Returns all results with default pagenumber applicable  
       responses:

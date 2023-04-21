@@ -15,7 +15,7 @@ class TestWeatherAPI(unittest.TestCase):
         results = json.loads(response.text)
         self.assertGreater(len(results), 0)
         for result in results:
-            self.assertEqual(result['date'], '19850102')
+            self.assertEqual(str(result['date']), '19850102')
         
         
 
